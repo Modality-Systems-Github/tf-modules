@@ -22,7 +22,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "module_internaldns_lin
   virtual_network_id    = var.vnetid
   registration_enabled  = true
 }
-
+/*
 resource "azurerm_private_dns_zone_virtual_network_link" "module_internaldns_link_dr" {
   name                  = "dnslink-dr" 
   resource_group_name = var.resourcegroup
@@ -30,7 +30,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "module_internaldns_lin
   virtual_network_id    = var.vnetid_dr
   registration_enabled  = true
 }
-
+*/
 resource "azurerm_private_dns_zone_virtual_network_link" "module_externaldns_link" {
    name                  = "dnslink-spwcom" // TODO : Change to just dnslink
   resource_group_name = var.resourcegroup
@@ -38,7 +38,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "module_externaldns_lin
   virtual_network_id    = var.vnetid
   registration_enabled  = false
 }
-
+/*
 resource "azurerm_private_dns_zone_virtual_network_link" "module_externaldns_link_dr" {
   name                  = "dnslink-dr"
   resource_group_name = var.resourcegroup
@@ -46,3 +46,4 @@ resource "azurerm_private_dns_zone_virtual_network_link" "module_externaldns_lin
   virtual_network_id    = var.vnetid_dr
   registration_enabled  = false
 }
+*/
