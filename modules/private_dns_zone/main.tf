@@ -24,7 +24,7 @@ resource "azurerm_private_dns_zone" "module_externaldns" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "module_internaldns_link" {
-  name                  = "dnslink-${internaldomainname}" // TODO : Change to just dnslink
+  name                  = "dnslink-${var.internaldomainname}" // TODO : Change to just dnslink
   resource_group_name = var.resourcegroup
   private_dns_zone_name = azurerm_private_dns_zone.module_internaldns.name
   virtual_network_id    = var.vnetid
@@ -40,7 +40,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "module_internaldns_lin
 }
 */
 resource "azurerm_private_dns_zone_virtual_network_link" "module_externaldns_link" {
-   name                  = "dnslink-${externaldomainname}" // TODO : Change to just dnslink
+   name                  = "dnslink-${var.externaldomainname}" // TODO : Change to just dnslink
   resource_group_name = var.resourcegroup
   private_dns_zone_name = azurerm_private_dns_zone.module_externaldns.name
   virtual_network_id    = var.vnetid
