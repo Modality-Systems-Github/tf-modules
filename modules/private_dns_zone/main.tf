@@ -6,7 +6,7 @@
 resource "azurerm_private_dns_zone" "module_internaldns" {
   name                = var.internaldomainname
   resource_group_name = var.resourcegroup
-    tags = merge(var.tags, map("creation", timestamp()))
+  tags     = merge(var.tags, ({"creation"= timestamp()}))
 
   lifecycle {
     ignore_changes = [tags["creation"]]
@@ -16,7 +16,7 @@ resource "azurerm_private_dns_zone" "module_internaldns" {
 resource "azurerm_private_dns_zone" "module_externaldns" {
   name                = var.externaldomainname
   resource_group_name = var.resourcegroup
-      tags = merge(var.tags, map("creation", timestamp()))
+  tags     = merge(var.tags, ({"creation"= timestamp()}))
 
   lifecycle {
     ignore_changes = [tags["creation"]]
